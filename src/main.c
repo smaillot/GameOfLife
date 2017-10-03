@@ -4,11 +4,6 @@
 
 #include "conway.h"
 
-void switch_on(int, int);
-void switch_off(int, int);
-int count_neighbors();
-int compute_next_state();
-
 int main()
 {
 
@@ -24,7 +19,7 @@ int main()
 	{
 		refresh();
 		clear();
-		
+
 		// loop over each cell to update world
 
 		/* example of cells on - please decrease your console font size */
@@ -51,21 +46,4 @@ int main()
 	
 	getch();
 	enditall();
-}
-
-void switch_on(int x, int y)
-{
-	/* one cell is represented by 2 characters in order to make a square pixel */
-	mvaddch(x, 2*y, (char)0x2588); // solid block ascii code
-	mvaddch(x, 2*y+1, (char)0x2588);
-}
-
-int count_neighbors()
-{
-	return 0;
-}
-
-int compute_next_state()
-{
-	return 0;
 }
