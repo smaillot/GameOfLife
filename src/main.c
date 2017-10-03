@@ -8,38 +8,33 @@ int main()
 {
 
 	// load world from external file
-	// create a structure for the grid
-		// create a sub-structure for the cells
-	// world = ...
+	int rows = 5;
+	int cols = 10;
+	bool world[5][10] = {{false}}; // need a malloc
+	world[1][1] = true;
+	world[1][2] = true;
+	world[1][3] = true;
 
 	initall();
 	curs_set(0); // hide cursor
 
-	for(int i=0;i<100;i++) // while(1) // main loop
+	for(int k=0;k<1;k++) // while(1) // main loop
 	{
 		refresh();
 		clear();
 
 		// loop over each cell to update world
 
-		/* example of cells on - please decrease your console font size */
-		switch_on(10,10);
-		switch_on(10,11);
-		switch_on(10,12);
-
-		switch_on(20,10);
-		switch_on(21,10);
-		switch_on(22,10);
-		switch_on(22,11);
-		switch_on(20,11);
-		switch_on(20,12);
-		switch_on(21,12);
-
-		switch_on(10,100);
-		switch_on(11,101);
-		switch_on(12,101);
-		switch_on(12,100);
-		switch_on(12,99);
+		for(int i=0; i<rows; i++)
+		{
+			for(int j=0; j<cols; j++)
+			{
+				if(world[i][j])
+					{
+						switch_on(i, j);
+					}
+			}
+		}		
 
 		refresh();
 	}
