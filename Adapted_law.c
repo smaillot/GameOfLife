@@ -51,9 +51,6 @@ void laws (bool matrix[rows][cols], int x, int y) {
                 if (matrix[y+k][x+j])
                 {
                     num_live++;
-                    printf("\n");
-                    printf("%d", num_live);
-                    printf("\n");
                 }
             }
         }
@@ -61,21 +58,14 @@ void laws (bool matrix[rows][cols], int x, int y) {
     if (st_cell && num_live<=3 && num_live>=2)
     {
         matrix[x][y]=true;
-        printf("\n");
-        printf("Ha ! Ha ! Ha ! Ha ! Stayin'alive Stayin'alive ");
-        
     }
     else if (st_cell && (num_live>3 || num_live<2))
     {
         matrix[x][y]=false;
-        printf("\n");
-        printf("I'll be back.");
     }
     else if (!st_cell && num_live==3)
     {
         matrix[x][y]=true;
-        printf("\n");
-        printf("I live !");
     }
 };
 
