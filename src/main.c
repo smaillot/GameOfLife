@@ -1,4 +1,4 @@
-
+#include <unistd.h>
 #include <stdio.h>
 #include <ncurses.h>
 
@@ -7,41 +7,68 @@
 int main()
 {
 
-	// load world from external file
-	// create a structure for the grid
-		// create a sub-structure for the cells
-	// world = ...
+	/* remaining work:
+		- interface
+		- modify grid size with a variable
+		- choose the initial states ingame
+		- choose speed (use sleep instead of getchar() )
+	*/
+
+
+	
+	struct Map map;
+	map.rows = 10;
+	map.cols = 10;
+	for (int i=0; i<map.rows; i++)
+	{
+		for (int j=0; j<map.cols; j++)
+		{
+			map.world[i][j] = false;
+			map.next_world[i][j] = false;
+		}
+	}
+
+	for (int i=1; i<map.rows-1; i++) //draw an initial figure
+	{
+		for (int j=1; j<map.cols-1; j++)
+		{
+			if ((i+j)%2)
+			{
+				map.world[i][j] = true;
+			}
+		}
+	}
 
 	initall();
 	curs_set(0); // hide cursor
-
-	for(int i=0;i<100;i++) // while(1) // main loop
+	
+	for(int k=0;k<100;k++) // while(1) // main loop
 	{
 		refresh();
 		clear();
 
 		// loop over each cell to update world
+		for (int i=1; i<map.rows-1; i++)
+		{
+			for (int j=1; j<map.cols-1; j++)
+			{
+				struct Cell current_cell = {i, j, map.world[i][j]};
+				display(&current_cell);
+				map.next_world[i][j] = (bool*) get_next_state(&current_cell, &map);
+			}
+		}
 
-		/* example of cells on - please decrease your console font size */
-		switch_on(10,10);
-		switch_on(10,11);
-		switch_on(10,12);
+		for (int i=0; i<map.rows; i++)
+		{
+			for (int j=0; j<map.cols; j++)
+			{
+				map.world[i][j] = map.next_world[i][j];
+			}
+		}		
 
-		switch_on(20,10);
-		switch_on(21,10);
-		switch_on(22,10);
-		switch_on(22,11);
-		switch_on(20,11);
-		switch_on(20,12);
-		switch_on(21,12);
-
-		switch_on(10,100);
-		switch_on(11,101);
-		switch_on(12,101);
-		switch_on(12,100);
-		switch_on(12,99);
-
+		if (k!=0) getchar();		
 		refresh();
+
 	}
 	
 	getch();
