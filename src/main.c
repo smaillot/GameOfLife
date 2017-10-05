@@ -7,20 +7,6 @@
 int main()
 {
 
-<<<<<<< HEAD
-	// load world from external file
-	int rows = 5;
-	int cols = 10;
-	bool world[5][10] = {{false}}; // need a malloc
-	world[1][1] = true;
-	world[1][2] = true;
-	world[1][3] = true;
-
-	initall();
-	curs_set(0); // hide cursor
-
-	for(int k=0;k<1;k++) // while(1) // main loop
-=======
 	/* remaining work:
 		- interface
 		- modify grid size with a variable
@@ -57,7 +43,6 @@ int main()
 	curs_set(0); // hide cursor
 	
 	for(int k=0;k<100;k++) // while(1) // main loop
->>>>>>> function_law
 	{
 		refresh();
 		clear();
@@ -73,22 +58,11 @@ int main()
 			}
 		}
 
-<<<<<<< HEAD
-		for(int i=0; i<rows; i++)
-		{
-			for(int j=0; j<cols; j++)
-			{
-				if(world[i][j])
-					{
-						switch_on(i, j);
-					}
-=======
 		for (int i=0; i<map.rows; i++)
 		{
 			for (int j=0; j<map.cols; j++)
 			{
 				map.world[i][j] = map.next_world[i][j];
->>>>>>> function_law
 			}
 		}		
 
