@@ -19,6 +19,7 @@ int enditall(void)
 
 void display(struct Cell *c)
 {
+	// coder 1
 	if (c->alive)
 	{
 		int x = c->x;
