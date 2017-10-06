@@ -39,7 +39,7 @@ bool compute_next_state (bool alive, int num_live) {
              {
                  state=false;
              }
-    else if (alive && num_live==3)
+    else if (!alive && num_live==3)
              {
                  state=true;
              }
