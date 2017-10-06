@@ -6,7 +6,7 @@
 
 int main()
 {
-
+	//coder 1
 	/* remaining work:
 		- interface
 		- modify grid size with a variable
