@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -I/usr/include/ -I.
 LDFLAGS = -lncurses
 DEPS = conway.h
-OBJ = main.o init.o laws.o
+OBJ = main.o display.o rules.o
 
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c -o $@ $<

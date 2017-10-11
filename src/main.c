@@ -1,26 +1,24 @@
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <ncurses.h>
 
 #include "conway.h"
 
+
 int main()
 {
-	//coder 1
-	/* remaining work:
-		- interface
-		- modify grid size with a variable
-		- choose the initial states ingame
-		- choose speed (use sleep instead of getchar() )
-	*/
-
-
+	////// coder 1
+	//
 	
 	struct Map map;
-	map.rows = 10;
-	map.cols = 10;
+	map.rows = ROWS+2;
+	map.cols = COLS+2;
+	
+	
+	// The previously created map is set to "all-dead"
 	for (int i=0; i<map.rows; i++)
-	{
+	{ 
 		for (int j=0; j<map.cols; j++)
 		{
 			map.world[i][j] = false;
@@ -28,46 +26,62 @@ int main()
 		}
 	}
 
-	for (int i=1; i<map.rows-1; i++) //draw an initial figure
+	//
+	///////
+
+
+	////// coder 3
+
+
+	/* remaining work:
+		- interface
+		- choose the initial states ingame
+	*/ 
+
+
+	// Initial map, to be modified 
+	// /!\ set to true only values that are not in the edges -> [1,1] to [map.rows-1, map.cols-1]
+
+	for (int i=1; i<map.rows-1; i++) 
 	{
 		for (int j=1; j<map.cols-1; j++)
 		{
-			if ((i+j)%2)
+			if ((i+j)%2 && i>1 && i < map.rows-2 && j>1 && j<map.cols-2)
 			{
 				map.world[i][j] = true;
 			}
 		}
 	}
+    
 
-	initall();
-	curs_set(0); // hide cursor
-	
-	for(int k=0;k<100;k++) // while(1) // main loop
+    //
+    ///////// map.world[][] is now initialized
+    
+    initall();
+
+	for(int k=0;k<1000;k++) // main loop
 	{
-		refresh();
-		clear();
+		inimap(); // draw the map edges and title
+		display_map(&map); // display map
 
-		// loop over each cell to update world
-		for (int i=1; i<map.rows-1; i++)
+		for (int i=1; i<map.rows-1; i++)  // compute next step
 		{
 			for (int j=1; j<map.cols-1; j++)
 			{
 				struct Cell current_cell = {i, j, map.world[i][j]};
-				display(&current_cell);
 				map.next_world[i][j] = (bool*) get_next_state(&current_cell, &map);
 			}
 		}
 
-		for (int i=0; i<map.rows; i++)
+		for (int i=0; i<map.rows; i++)  // assign next step to current
 		{
 			for (int j=0; j<map.cols; j++)
 			{
 				map.world[i][j] = map.next_world[i][j];
 			}
-		}		
+		}	
 
-		if (k!=0) getchar();		
-		refresh();
+		animate(30);		
 
 	}
 	

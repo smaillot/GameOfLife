@@ -5,6 +5,7 @@
 
 int count_neighbors (struct Cell *c, struct Map *m) {
 	// coder 2
+    // Count the number of neighbors of a given cell
 
     int num_live=0;
     int x=c->x;
@@ -29,6 +30,7 @@ int count_neighbors (struct Cell *c, struct Map *m) {
 
 bool compute_next_state (bool alive, int num_live) {
 	//coder 2
+    // Given the current state and the # of neighbors of a cell, apply the rules to compute the next step
 
 	bool state;
     if (alive && num_live<=3 && num_live>=2)
@@ -48,7 +50,9 @@ bool compute_next_state (bool alive, int num_live) {
 
 bool get_next_state (struct Cell *c, struct Map *m)
 {
-	//coder 2
+	// coder 2
+    // Return the next state given the cell structure and the current world map
+
 	bool alive = c->alive;
 	int num_live = count_neighbors(c, m);
 
