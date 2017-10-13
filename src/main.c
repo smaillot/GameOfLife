@@ -42,17 +42,25 @@ int main()
 	// Initial map, to be modified 
 	// /!\ set to true only values that are not in the edges -> [1,1] to [map.rows-1, map.cols-1]
 
-	for (int i=1; i<map.rows-1; i++) 
-	{
-		for (int j=1; j<map.cols-1; j++)
+
+		/* grid
+		for (int i=1; i<map.rows-1; i++) 
 		{
-			if ((i+j)%2 && i>1 && i < map.rows-2 && j>1 && j<map.cols-2)
+			for (int j=1; j<map.cols-1; j++)
 			{
-				map.world[i][j] = true;
+				if ((i+j)%2 && i>1 && i < map.rows-2 && j>1 && j<map.cols-2)
+				{
+					map.world[i][j] = true;
+				}
 			}
 		}
-	}
-    
+	    	*/
+
+	draw_shape(5, 5, 36, &canon, &map);
+	draw_shape_180(65, 95, 36, &canon, &map);
+	draw_shape(40, 15, 48, &galaxy, &map);
+	draw_shape(5, 80, 28, &cross, &map);
+
 
     //
     ///////// map.world[][] is now initialized
@@ -81,7 +89,7 @@ int main()
 			}
 		}	
 
-		animate(30);		
+		animate(20);		
 
 	}
 	
