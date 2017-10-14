@@ -67,7 +67,7 @@ int main()
     
     initall();
 
-	for(int k=0;k<1000;k++) // main loop
+	while (1) //for(int k=0;k<1000;k++) // main loop
 	{
 		inimap(); // draw the map edges and title
 		display_map(&map); // display map
