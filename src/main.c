@@ -26,35 +26,7 @@ int main()
 		}
 	}
 
-	//
-	///////
-
-
-	////// coder 3
-
-
-	/* remaining work:
-		- interface
-		- choose the initial states ingame
-	*/ 
-
-
-	// Initial map, to be modified 
-	// /!\ set to true only values that are not in the edges -> [1,1] to [map.rows-1, map.cols-1]
-
-
-		/* grid
-		for (int i=1; i<map.rows-1; i++) 
-		{
-			for (int j=1; j<map.cols-1; j++)
-			{
-				if ((i+j)%2 && i>1 && i < map.rows-2 && j>1 && j<map.cols-2)
-				{
-					map.world[i][j] = true;
-				}
-			}
-		}
-	    	*/
+	// draw on the map
 
 	draw_shape(5, 5, 36, &canon, &map);
 	draw_shape_180(65, 95, 36, &canon, &map);
