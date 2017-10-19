@@ -1,4 +1,4 @@
-CC = /usr/bin/gcc
+CC = gcc
 CFLAGS = -Wall -I/usr/include/ -I.
 LDFLAGS = -lncurses
 DEPS = conway.h
