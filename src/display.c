@@ -101,3 +101,61 @@ void animate(int freq)
 }
 
 // Add interface function here
+
+void display_interface(int freq)
+{
+	// coder 3
+	// the interface function to display
+	initall();
+  printw("Please press number 1-5 to choose a map to display");	// Print instruction
+	printw("Map 1 The R-pentomino");	// map infomation
+	printw("Map 2 Diehard");
+	printw("Map 3 Acorn");
+	printw("Map 4 ");
+	printw("Map 5 ");
+
+	int in = getch();			// Wait for user input
+	        if(ch == 49)  //49 is the ASCII code of ´1´
+	        {  // here the map is The R-pentomino
+						draw_shape(1, 2, 2, &twopoints, &map);
+						draw_shape(2, 1, 2, &twopoints, &map);
+						draw_shape(3, 2, 1, &onepoint, &map);
+	        }
+	        else if(ch == 50) // here we choose map2
+	        {
+						draw_shape(2, 1, 3, &angle3, &map);
+						draw_shape(1, 7, 1, &onepoint, &map);
+						draw_shape(3, 6, 3, &blinker, &map);
+	        }
+	        else if(ch == 51)
+	        {  //Acorn
+						draw_shape(1, 2, 1, &onepoint, &map);
+						draw_shape(2, 4, 1, &onepoint, &map);
+						draw_shape(3, 1, 2, &twopoints, &map);
+						draw_shape(3, 5, 3, &blinker, &map);
+	        }
+	        else if(ch == 52)
+	        {  //  !!!!!     this shape was in main
+						draw_shape(5, 5, 36, &canon, &map);
+						draw_shape_180(65, 95, 36, &canon, &map);
+						draw_shape(40, 15, 48, &galaxy, &map);
+						draw_shape(5, 80, 28, &cross, &map); 
+	        }
+					else if(ch == 53)
+					{ // beacon
+						draw_shape(1, 1, 3, &angle3, &map);
+						draw_shape_180(3, 4, 3, &angle3, &map);
+					}
+	        setTicker(20);
+	    }
+	printw("please Press number 1-5 from keboard to choose the map");
+
+
+  refresh();			// refresh it on to the real screen
+  mvaddch(10,10,'X');
+  refresh();			// print the map on the real screen
+
+
+  enditall();
+   usleep(1000000/freq); // wait for 1/freq seconds
+}
