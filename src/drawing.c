@@ -45,6 +45,11 @@ void draw_shape_180(int x, int y, int n, struct Point* shape, struct Map* m)
 
 
 // Shapes
+// Shapes
+struct Point onepoint[1] =  {{0,0}};
+struct Point twopoints[2] =  {{0,0}, {0,1}};
+struct Point angle3[3] = {{0,0}, {0,1}, {1,2}};
+
 
 // Oscillators
 struct Point blinker[3] = {{0,0}, {0,1}, {0,2}};
