@@ -25,13 +25,16 @@ int main()
 			map.next_world[i][j] = false;
 		}
 	}
-
+       // choose the map
+	display_interface();
+	
+	
 	// draw on the map
-
-	draw_shape(5, 5, 36, &canon, &map);
-	draw_shape_180(65, 95, 36, &canon, &map);
-	draw_shape(40, 15, 48, &galaxy, &map);
-	draw_shape(5, 80, 28, &cross, &map);
+	
+//	draw_shape(5, 5, 36, &canon, &map);
+//	draw_shape_180(65, 95, 36, &canon, &map);
+//	draw_shape(40, 15, 48, &galaxy, &map);
+//	draw_shape(5, 80, 28, &cross, &map);
 
 
     //
