@@ -102,7 +102,7 @@ void animate(int freq)
 
 // Add interface function here
 
-void display_interface(int freq)
+void display_interface()
 {
 	// coder 3
 	// the interface function to display
