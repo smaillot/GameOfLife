@@ -19,6 +19,8 @@ int count_neighbors(struct Cell*, struct Map*);
 
 bool get_next_state (struct Cell*, struct Map*);
 
+void display_interface(int freq);
+
 void inimap();
 void pixel(int, int, char);
 void display_cell(struct Cell*); 
@@ -28,6 +30,10 @@ void animate(int);
 void draw_cell(int, int, struct Map*);
 void draw_shape(int, int, int, struct Point*, struct Map*);
 void draw_shape_180(int, int, int, struct Point*, struct Map*);
+
+extern struct Point onepoint[1];
+extern struct Point twopoints[2]; 
+extern struct Point angle3[3];
 
 extern struct Point blinker[3];
 extern struct Point oscillator[28];
