@@ -19,7 +19,7 @@ int count_neighbors(struct Cell*, struct Map*);
 
 bool get_next_state (struct Cell*, struct Map*);
 
-void display_interface(int freq);
+void display_interface(struct Map*);
 
 void inimap();
 void pixel(int, int, char);

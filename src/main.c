@@ -26,7 +26,8 @@ int main()
 		}
 	}
        // choose the map
-	display_interface();
+    initall();
+	display_interface(&map);
 	
 	
 	// draw on the map
@@ -40,7 +41,6 @@ int main()
     //
     ///////// map.world[][] is now initialized
     
-    initall();
 
 	while (1) //for(int k=0;k<1000;k++) // main loop
 	{
@@ -64,7 +64,7 @@ int main()
 			}
 		}	
 
-		animate(20);		
+		animate(0);		
 
 	}
 	
