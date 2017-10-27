@@ -5,6 +5,22 @@
 
 #include "conway.h"
 
+/*
+
+Team work strategy
+
+Our team work strategy was to create a repo (http://github.com/smaillot/GameOfLife)
+so that each member of the team can independantly edit and create his functions 
+and check other's work.
+
+We basically splitted the work as follow :
+
+coder 1 created the main structure of the program and display functions
+coder 2 focused on game rules for the evolution of world's state between frames
+coder 3 realised the game interface and initial maps
+
+*/
+
 
 int main()
 {
@@ -25,25 +41,20 @@ int main()
 			map.next_world[i][j] = false;
 		}
 	}
-       // choose the map
+	
+	
     initall();
-	display_interface(&map);
+	// draw the map
 	
-	
-	// draw on the map
-	
-//	draw_shape(5, 5, 36, &canon, &map);
-//	draw_shape_180(65, 95, 36, &canon, &map);
-//	draw_shape(40, 15, 48, &galaxy, &map);
-//	draw_shape(5, 80, 28, &cross, &map);
+       // choose the map
+	int freq = display_interface(&map);
 
-
-    //
-    ///////// map.world[][] is now initialized
+    // map.world[][] is now initialized
     
 
 	while (1) //for(int k=0;k<1000;k++) // main loop
 	{
+
 		inimap(); // draw the map edges and title
 		display_map(&map); // display map
 
@@ -64,10 +75,9 @@ int main()
 			}
 		}	
 
-		animate(0);		
+		animate(freq);		
 
 	}
 	
-	getch();
 	enditall();
 }
